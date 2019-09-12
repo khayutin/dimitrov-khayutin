@@ -1,0 +1,135 @@
+\documentclass[12pt]{amsart}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+
+\newcommand{\sol}{\emph{Solution. }}
+\newcommand{\proofend}{\hfill \hbox{\vrule width 5pt height 5pt depth
+0pt}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\op}{\overline{\partial}}
+\newcommand{\Oz}{\mathcal{O}}
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\ind}{\mathrm{ind} \,}
+\newcommand{\proj}{\mathbb{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Xx}{\mathfrak{X}}
+\newcommand{\Yy}{\mathfrak{Y}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathscr{G}}
+\newcommand{\K}{\mathscr{K}}
+\newcommand{\Ll}{\mathscr{L}}
+\newcommand{\I}{\mathscr{I}}
+\newcommand{\V}{\mathfrak{V}}
+\newcommand{\U}{\mathfrak{U}}
+\newcommand{\divi}{\mathrm{div} \,}
+\newcommand{\spec}{\mathrm{Spec} \,}
+\newcommand{\remark}[1]{\medskip {\it Remark. #1} \rm}
+\newcommand{\comment}[1]{\medskip {\rm C\,o\,m\,m\,e\,n\,t. #1} \rm}
+\newcommand{\Kb}{\overline{K}}
+\newcommand{\Ksep}{K^{\mathrm{sep}}}
+\newcommand{\Mor}{\mathrm{Mor}}
+\newcommand{\Homs}{\underline{\mathbf{Hom}}}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corol}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defin}{Definition}[subsection]
+\newtheorem{propo}[lemma]{Proposition}
+\newtheorem{example}{Example}[subsection]
+\newtheorem*{hyp}{Hypothesis G}
+
+
+\begin{document}
+
+Let $K$ range over all number fields of the unrestricted degree $d$, and embed $K$ as usual in the standard Euclidean $d$-space $\R^d$ by choosing one of the finitely many ring isomorphisms of $K \otimes \R$ with $\R^{r_1} \times \C^{r_2}$. Let $r:  \mathrm{PGL}(d,\Z) \backslash \mathrm{PGL}(d,\R) \to \R$ be a continuous function on the space of unimodular Euclidean lattices (to be used as a cut-off function). We write $\bar{I} := (\mathrm{covol}(I))^{-1/d}\cdot I$ for the unit-scaled lattice, $I^{\vee}$ for the dual with respect to the standard inner product on $\R^d$, $\widehat{f}(\mathbf{x}) := \int_{\mathbb{R}^d} f(\mathbf{u}).e^{-2\pi i \mathbf{u} \cdot \mathbf{x}} d\mathrm{vol}(\mathbf{u})$ for the Fourier transform with respect to the same inner product, and   $$
+\mathbb{E}^K[G] := \lim_{X \to \infty} \Big( \sum_{\substack{ \textrm{ideals $I \subset O_K$:} \\ N(I) < X }} G(I) \Big) \Big/ \Big( \sum_{\substack{ \textrm{ideals $I \subset O_K$:} \\ N(I) < X }} 1 \Big)
+$$
+ for the mean value on the Heegner locus (toral packet) of $K$ of a continuous function $G : \mathrm{PGL}(d,\Z) \backslash \mathrm{PGL}(d,\R) \to \R$. Let $\kappa_K$ be the $s = 1$ residue of the Dedekind zeta function of $K$, and $\gamma_K := a_0 / \kappa_K$ where $\zeta_K(s) = \kappa_K / (s-1) + a_0 + O(|s-1|)$.
+
+Then the two limit distributions on $\R^d$,
+$$
+A(f;K,r) :=   \lim_{X \to \infty} \kappa_K^{-1} \sum_{\substack{ \textrm{ideals $I$ of norm}\\ n = N(I) < X / r(\bar{I})}} \frac{1}{n}\sum_{ v \in \bar{I}^{\vee} \setminus {0} } \widehat{f}\Big( \big(X/n\big)^{1/d} \cdot v \Big)
+$$
+and
+$$
+B(f;K,r) :=   \lim_{X \to \infty} \kappa_K^{-1} \frac{1}{X}\sum_{\substack{ \textrm{ideals $I$ of norm}\\ n = N(I) > X / r(\bar{I})}} \sum_{ v \in \bar{I} \setminus {0} } f\Big( \big(n/X\big)^{1/d} \cdot v \Big),
+$$
+exist and are related by the distributional equation
+\begin{eqnarray*}
+\widehat{f}(\mathbf{0}) \cdot (\gamma_K + \log\big(\sqrt{|D_{K/\Q}|} \cdot 2^{-r_2}) \big) \\
+= \int_{\R^d} f(\mathbf{x}) \cdot \log 1/|x_1\cdots x_d|.d\mathrm{vol}(\mathbf{x}) \\
+- \mathbb{E}^K[ \log{r} ] \cdot \widehat{f}(\mathbf{0}) - \mathbb{E}^K[1/r] \cdot f(\mathbf{0}) \\
+ +  A(f;K,r)
+  +   B(f;K,r),
+\end{eqnarray*}
+on $\R^d$.
+
+\medskip
+
+{\it An application with the choice $r = 1$ and
+$$
+f(\mathbf{x}) = \prod_{i=1}^d S^{-1}(g * g)(x_i/S),
+$$
+ where $g(t) := \chi_{[0,1]} \cdot (-30t^2+30t+2)/7$ and $S := \int_0^1 |g(t)|^2 \, dt = 54/49$.}
+
+
+\medskip
+
+Here we have $\hat{f}(\mathbf{0}) = f(\mathbf{0}) = 1$ and  $\int_{\R^d} f(\mathbf{x}) \cdot \log 1/|x_1\cdots x_d| \cdot d\mathrm{vol}(\mathbf{x}) = d \cdot (977/588 - \log{ (54/49)}) > 1.5644 d$.
+
+Dropping by positivity all terms from $A$ and all but the shortest vectors per ideal lattice from $B$, we have
+\begin{equation} \label{lowerbound}
+\gamma_K > - \log{\big( \sqrt{|D_{K/\Q}|} \cdot 2^{-r_2} \big)} + 1.5644d - 2 + \mathbb{E}^K[\lambda_1^{-d}].
+\end{equation}
+
+Here $\lambda_1$ is the first successive minimum function: the length of a shortest non-zero vector of $\bar{I} = I / \mathrm{covol}(I)^{1/d}$. This holds for all number fields $K$ without exception (not just an asymptotic inequality), including for $K = \Q$ with the narrow margin of $0.0132\ldots$.
+A similar inequality was obtained recently by Khayutin.\footnote{Khayutin I., Non-vanishing of class group $L$-functions with small regulator, {\it preprint} (2019), \texttt{ArXiv:1901.06710v1} (12 pp).}
+
+This coefficient of
+\begin{eqnarray*}
+1.5644\ldots = 977/588 - \log{ 54/49} \\ = \int_0^1 \int_0^1 g(x)g(y) \log{\frac{1}{|x-y|}} \, dx \, dy  - \log{\int_0^1} g(t)^2 \, dt
+\end{eqnarray*}
+ is slightly better than Stark's $(\log{(4\pi)} + \gamma_{\Q})/2 = 1.554\ldots$, which gets recovered in the above by the choice $f(\mathbf{x}) = \exp(-\pi \sum_{i=1}^d x_i^2)$ of the self-dual Gaussian.
+
+
+In the other direction we have $\gamma_K = \frac{1}{1-\beta} + O(\log{|D_{K/Q}|}) \ll \log{|D_{K/\Q}|}$ if and only if $\zeta_K$ has no exceptional zero to its standard zero-free region; furthermore $\gamma_K < 2\log{\log{|D_{K/\Q}|}} + 40$ under the GRH (for $K \neq \Q$).  In particular, (\ref{lowerbound}) contains a fully explicit Stark-Odlyzko lower bound on root discriminants which, though relatively weak and only GRH conditional, supersedes the original Stark constant $4\pi e^{\gamma_{\Q}}$ (but it is inferior to the subsequent improvements by Odlyzko and others).
+
+More interestingly, we also see that if $K$ has a smaller than a doubly exponential discriminant in the degree $d$,  and if $\zeta_K$ has no ``exceptional zero,'' then asymptotically as $d$ increases, an $1 - o(1)$ fraction of the ideal lattices $I$ of $K$ must have $\lambda_1(\bar{I}) > 0.9999$.
+
+Unconditionally, (\ref{lowerbound}) yields by the recent work of Breuillard and Varj\'u, on the one hand, and of Bary-Soroker, Koukoulopoulos and Kozma, on the other, that most of the ideal lattices $I$ of most of the number fields $\Q[X] / \big( X^d + \sum_{j=1}^d c_jX^{d-j} \big)$, where $c_1, \ldots, c_d \in \{1, \ldots, 100\}$, have $\lambda_1(\bar{I}) > 0.9999$ (asymptotically as $d$ increases).
+
+
+
+\newpage
+
+{\it An application with $d = 2$, $\hat{f}(\mathbf{0}) = 0$ and the choice $r(\bar{I}) = y \sim \lambda_1(\bar{I})^{-2}$. }
+
+\medskip
+
+Fix a non-zero integer $m \in \Z \setminus \{0\}$. For $v \in \R^2 \setminus \{(0,0)\}$, let us denote by $\alpha_v \in [0, \pi/2)$ the unique angle in $[0,\pi/2)$ formed between the lines $\R \cdot v$ and the $x$-axis. Then, uniformly as $K$ ranges over all the real quadratic fields, the mean value
+\begin{eqnarray} \label{newform}
+\mathbb{E}^K \Big[ \sum_{\substack{ v \in \bar{I} \setminus \{0\} \\ \textrm{a shortest vector} }}  \cos\big(2 m \cdot \alpha_v \big) \cdot \|v\|^{-2} \Big] = O(|m|),
+\end{eqnarray}
+over the toral packet (Heegner locus of ideal lattice shapes $\bar{I}$) of $O_K$
+is bounded in magnitude, and indeed by an absolute and effective constant multiple of $|m|$.
+
+This is completely trivial for a quadratic imaginary field, since then the mean value is exactly equal to zero, even ideal class by ideal class and position vector by position vector, by the angular equidistribution of the ideal lattices in each class. Is (2) and its higher $d$ generalization useful for anything? 
+
+\medskip
+
+(Detailed proofs to be added of the statements so far.)
+
+\end{document}
+
+
